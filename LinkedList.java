@@ -342,11 +342,19 @@ public class LinkedList {
 	 * A textual representation of this list, for debugging.
 	 */
 	public String toString() {
+		if (this.first == null) {
+			return "()";
+		}
 		String str = "(";
 		Node current = this.first;
 		while (current != null) {
-			str += current + ", ";
+			str += current;
+			if (current.next != null) {
+				str += ", ";
+			}
+			current = current.next;
 		}
+		str += ")";
 		return str;
 	}
 }
